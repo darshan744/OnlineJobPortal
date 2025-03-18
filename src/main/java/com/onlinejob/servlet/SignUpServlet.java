@@ -25,9 +25,11 @@ public class SignUpServlet extends HttpServlet {
         username = req.getParameter("username");
         pass = req.getParameter("password");
         email = req.getParameter("email");
-        role = Role.SUPERADMIN;
+        String enteredRole = req.getParameter("role");
+        System.out.println(enteredRole);
+        role = "EMPLOYEE".equals(enteredRole) ? Role.JOBSEEKER : Role.EMPLOYER;
+        // role = Role.SUPERADMIN;
         pass = PasswordUtil.getPasswordUtil().hashPassword(pass);
-        
         User user = new User();
         user.setName(name);
         user.setUsername(username);

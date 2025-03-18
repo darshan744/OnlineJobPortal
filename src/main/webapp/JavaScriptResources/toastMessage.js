@@ -11,7 +11,12 @@ const urlParams = new URLSearchParams(window.location.search);
 
 if(urlParams.has("status")){
     const status = urlParams.get("status");
-    const message = status === "success"? "Signup Success You can now Login" : "Signup failed Try again later"
+    const messageParam = urlParams.get("message");
+
+    let message = status === "success"? "Signup Success You can now Login" : "Signup failed Try again later"
+    if(messageParam){
+        message = messageParam;
+    }
     const type = status === "success" ? status : "danger";
     showToast(message , type) 
 }

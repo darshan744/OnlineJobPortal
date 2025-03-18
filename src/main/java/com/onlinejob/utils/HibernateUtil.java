@@ -23,7 +23,7 @@ public class HibernateUtil {
         // sql db link
         props.put(Environment.URL, "jdbc:mysql://localhost:3306/onlinejobportal");
         // sql user name
-        props.put(Environment.USER , "user");
+        props.put(Environment.USER , "root");
         //sql user pass
         props.put(Environment.PASS, "Darshan@123");
         //dialect

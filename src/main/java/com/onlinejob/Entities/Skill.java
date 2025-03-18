@@ -1,39 +1,43 @@
 package com.onlinejob.Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
+import javax.persistence.*;
+import java.util.Set;
 @Entity
 @Table(name = "skills")
 public class Skill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    long skilId;
+    long skillId;
 
     @Column(unique = true , nullable = false)
     private String skillName;
 
-    public Skill(long skilId, String skillName) {
-        this.skilId = skilId;
+    @ManyToMany(mappedBy = "skills")
+    private Set<JobDetails> jobDetailsList;
+
+    public Skill(long skillId, String skillName) {
+        this.skillId = skillId;
         this.skillName = skillName;
     }
 
     public Skill() {
     }
 
-    public long getSkilId() {
-        return skilId;
+    public Set<JobDetails> getJobDetailsList() {
+        return jobDetailsList;
     }
 
-    public void setSkilId(long skilId) {
-        this.skilId = skilId;
+    public void setJobDetailsList(Set<JobDetails> jobDetailsList) {
+        this.jobDetailsList = jobDetailsList;
+    }
+
+    public long getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(long skillId) {
+        this.skillId = skillId;
     }
 
     public String getSkillName() {
@@ -43,6 +47,4 @@ public class Skill {
     public void setSkillName(String skillName) {
         this.skillName = skillName;
     }
-
-    
 }

@@ -1,16 +1,10 @@
 package com.onlinejob.Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     
     @Id 
@@ -23,7 +17,8 @@ public class User {
     @Column(nullable = false , unique = true)
     private String username;
 
-    @Column(nullable = false)
+   
+    @Column(nullable = false , length = 60)
     private String password;
 
     @Column(nullable = false)
@@ -32,7 +27,26 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+    
+    private String phoneNumber;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    
     //CONSTRUCTORS 
     public User() {
     }
@@ -77,5 +91,11 @@ public class User {
     }
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", email="
+                + email + ", role=" + role + "]";
     }
 }

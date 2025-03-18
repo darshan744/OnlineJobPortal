@@ -42,11 +42,10 @@ public class AuthHandler {
     public boolean putUser(User user) {
         Transaction tx = null;
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            System.out.println(user.toString());
             tx = session.beginTransaction();
-
             session.persist(user);
             tx.commit();
-
             return true;
         }
         catch(HibernateException he) {
