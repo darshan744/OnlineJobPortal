@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import com.onlinejob.Entities.Role;
 import com.onlinejob.Entities.User;
+import com.onlinejob.Entities.Enums.Role;
 import com.onlinejob.services.AuthHandler;
 import com.onlinejob.utils.PasswordUtil;
 

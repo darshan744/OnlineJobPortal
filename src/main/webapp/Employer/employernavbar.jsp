@@ -1,21 +1,28 @@
 <html>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />    
 </head>
 
-<body>
-    <nav class="navbar navbar-expand">
-        <div class="navbar-brand">
+<body >
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="navbar-brand ms-2">
             Online Job Portal
         </div>
         <ul class="navbar-nav">
-            <li class="nav-link">
-                <a href="Home.jsp">Home</a>
+            <li class="nav-item">
+                <a href="Home.jsp" class="nav-link">Home</a>
             </li>
-            <li class="nav-link">
-                <a href="employer-dashboard.jsp">Dashboard</a>
+            <li class="nav-item">
+                <a href="postjob.jsp" class="nav-link">Post Job</a>
+            </li>
+            <li class="nav-item">
+                <a href="employer-dashboard.jsp" class="nav-link">Dashboard</a>
             </li>
         </ul>
     </nav>

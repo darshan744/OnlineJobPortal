@@ -2,9 +2,12 @@ package com.onlinejob.Entities;
 
 import javax.persistence.*;
 
+import com.onlinejob.Entities.Enums.Role;
+
 @Entity
 @Table(name = "Users")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "role" , discriminatorType = DiscriminatorType.STRING)
 public class User {
     
     @Id 

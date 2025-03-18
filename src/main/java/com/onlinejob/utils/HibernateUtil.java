@@ -8,6 +8,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import com.onlinejob.Entities.Employer;
+import com.onlinejob.Entities.JobDetails;
+import com.onlinejob.Entities.JobSeeker;
+import com.onlinejob.Entities.Skill;
+import com.onlinejob.Entities.SuperAdmin;
 import com.onlinejob.Entities.User;
 
 public class HibernateUtil {
@@ -39,6 +44,11 @@ public class HibernateUtil {
         con.setProperties(props);
         //add the entity class;
         con.addAnnotatedClass(User.class);
+        con.addAnnotatedClass(Employer.class);
+        con.addAnnotatedClass(JobSeeker.class);
+        con.addAnnotatedClass(SuperAdmin.class);
+        con.addAnnotatedClass(JobDetails.class);
+        con.addAnnotatedClass(Skill.class);
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                                     .applySettings(con.getProperties()).build();
 

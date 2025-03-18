@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.onlinejob.Entities.Enums.JobType;
+
 @Entity
 public class JobDetails {
     @Id
@@ -15,6 +17,7 @@ public class JobDetails {
     @Column(nullable =  false)
     private String companyName;
 
+    
     @Column(nullable =  false)
     private String jobRole;
 
@@ -48,7 +51,6 @@ public class JobDetails {
     private JobType jobType;    
     
     private String location;
-
 
     public LocalDate getPostedDate() {
         return postedDate;

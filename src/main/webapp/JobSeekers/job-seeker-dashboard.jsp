@@ -21,7 +21,7 @@
               src="https://placehold.co/100"
               class="rounded-circle mx-auto"
             />
-            <h5>DARSHAN</h5>
+            <h5><%= user.getName() %></h5>
             <p>Full Stack Dev</p>
           </div>
           <div>

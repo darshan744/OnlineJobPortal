@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "employers")
-@PrimaryKeyJoinColumn(name="user_id")
+@DiscriminatorValue("EMPLOYER")
 public class Employer extends User {
 
     private String companyName;

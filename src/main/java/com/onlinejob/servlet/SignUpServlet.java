@@ -2,8 +2,11 @@ package com.onlinejob.servlet;
 
 import java.io.IOException;
 
-import com.onlinejob.Entities.Role;
+import com.onlinejob.Entities.Employer;
+import com.onlinejob.Entities.JobSeeker;
+import com.onlinejob.Entities.SuperAdmin;
 import com.onlinejob.Entities.User;
+import com.onlinejob.Entities.Enums.Role;
 import com.onlinejob.services.AuthHandler;
 import com.onlinejob.utils.PasswordUtil;
 
@@ -30,16 +33,26 @@ public class SignUpServlet extends HttpServlet {
         role = "EMPLOYEE".equals(enteredRole) ? Role.JOBSEEKER : Role.EMPLOYER;
         // role = Role.SUPERADMIN;
         pass = PasswordUtil.getPasswordUtil().hashPassword(pass);
-        User user = new User();
+        User user = null;
+        if(role == Role.EMPLOYER){
+            user = new Employer();
+        }
+        else if(role == Role.JOBSEEKER) {
+            user = new JobSeeker();
+        }
+        else {
+            user = new SuperAdmin();
+            
+        }
         user.setName(name);
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(pass);
-        user.setRole(role);
 
         try{
+            System.out.println(user);
            boolean inserted = AuthHandler.getAuthHandler().putUser(user);
-
+            
            if(inserted) {
             res.sendRedirect("login.jsp?status=success");
            }
@@ -49,6 +62,7 @@ public class SignUpServlet extends HttpServlet {
 
         }
         catch(Exception e) {
+            System.out.println(e.getLocalizedMessage());
             res.sendRedirect("error.jsp");
         }
     }
