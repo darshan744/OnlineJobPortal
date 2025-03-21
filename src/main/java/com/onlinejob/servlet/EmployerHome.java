@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/Employer/Home")
 public class EmployerHome extends HttpServlet{
@@ -19,7 +20,9 @@ public class EmployerHome extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JobDetailsDAO jobDetailsDAO = JobDetailsDAO.getJobDetailsDAO();
         List<JobDetails> list = jobDetailsDAO.getJobDetails();
-        req.setAttribute("jobs", list);
+        System.out.println(list);
+        HttpSession session = req.getSession();
+        session.setAttribute("jobs", list);
         resp.sendRedirect("Home.jsp");
     }
 

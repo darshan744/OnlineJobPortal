@@ -18,6 +18,14 @@ public class JobDetails {
     @Column(nullable =  false)
     private String companyName;
 
+    @Override
+    public String toString() {
+        return "JobDetails [id=" + id + ", companyName=" + companyName + ", jobRole=" + jobRole + ", jobDescription="
+                + jobDescription + ", salary=" + salary + ", appliedSeekers=" + appliedSeekers + ", employer="
+                + employer + ", lastDateToApply=" + lastDateToApply + ", postedDate=" + postedDate + ", jobType="
+                + jobType + ", location=" + location + ", skills=" + skills + "]";
+    }
+
     //jobrole
     @Column(nullable =  false)
     private String jobRole;
