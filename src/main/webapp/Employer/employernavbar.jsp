@@ -7,6 +7,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous"
   />    
+  
 </head>
 
 <body >
@@ -16,7 +17,7 @@
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="Home.jsp" class="nav-link">Home</a>
+                <a href="Home" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
                 <a href="postjob.jsp" class="nav-link">Post Job</a>

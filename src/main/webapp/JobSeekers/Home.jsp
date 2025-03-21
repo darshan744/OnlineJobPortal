@@ -9,6 +9,7 @@
       crossorigin="anonymous"
     />
     </head>
+    <title>Jobs</title>
     <body>
         <jsp:include page="navbar.jsp"></jsp:include>
         <div class="container mt-3">

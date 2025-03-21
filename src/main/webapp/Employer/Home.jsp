@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ page import="java.util.List , com.onlinejob.Entities.JobDetails" %>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -11,14 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your postings</title>
 </head>
-<body class="bg-dark p-1">
+<body class="bg-dark p-1 text-light">
     <jsp:include page="employernavbar.jsp"></jsp:include>
     <div class="container mt-2">
         <div class="row">
             <h3 class="col-12">Your Postings</h3>
         </div>
         <div class="row">
-            
+            <% 
+                List<JobDetails> jobDetails = request.getAttribute("jobs");
+
+                for(JobDetails jobs : jobDetails) {
+            %>
+            <div>
+                
+            </div>
         </div>
     </div>
 

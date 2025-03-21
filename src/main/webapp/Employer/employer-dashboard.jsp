@@ -15,90 +15,79 @@
     <div class="container">
         <% Employer user=(Employer) session.getAttribute("user"); %>
         <div class="row">
-                <div class="col text-light">
+            <div class="col text-light">
                     <div class="d-flex flex-column card align-items-center bg-dark p-3">
                         <img src="https://placehold.co/100" class="rounded-circle mx-auto" />
                         <h5>
                             <%= user.getName() %>
                         </h5>
-                        <div class="gap-2">
+                        <form action="updateEmployer" method="post" class="gap-2">
                             <div class="form-group mb-3">
                                 <label for="companyName">Company Name</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('companyName')">Edit</button>
+                                        <button class="btn btn-light" type="button" onclick="openEditOption('companyName')">Edit</button>
                                     </div>
-                                    <input type="text" name="companyName" id="companyName" value=<%= user.getCompanyName() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                    <input type="text" name="companyName" id="companyName" value="<%= user.getCompanyName() %>" class="form-control" disabled>
+                                    
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="companyName">Name</label>
+                                <label for="name">Name</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('name')">Edit</button>
+                                        <button class="btn btn-light" type="button" onclick="openEditOption('name')">Edit</button>
                                     </div>
                                     <input type="text" name="name" id="name" value=<%= user.getName() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="companyName">User Name</label>
+                                <label for="username">User Name</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('username')">Edit</button>
+                                        <button class="btn btn-light" type="button" onclick="openEditOption('username')">Edit</button>
                                     </div>
                                     <input type="text" name="username" id="username" value=<%= user.getUsername() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="companyName">Email</label>
+                                <label for="email">Email</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('email')">Edit</button>
+                                        <button class="btn btn-light" type="button" onclick="openEditOption('email')">Edit</button>
                                     </div>
                                     <input type="text" name="email" id="email" value=<%= user.getEmail() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="companyName">Phone Number</label>
+                                <label for="phonenumber">Phone Number</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('phonenumber')">Edit</button>
+                                        <button class="btn btn-light" type="button" onclick="openEditOption('phonenumber')">Edit</button>
                                     </div>
-                                    <input type="text" name="phonenumber" id="phonenumber" value=<%= user.getPhoneNumber() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                    <input type="text" name="phonenumber" id="phonenumber" class="form-control" disabled>
+                                   
                                 </div>
                             </div>
-                            
                             <div class="form-group mb-3">
                                 <label for="companyName">Password</label>
                                 <div class="input-group gap-2">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-light" onclick="openEditOption('password')">Edit</button>
+                                        <button class="btn btn-light"type="button" onclick="openEditOption('password')">Edit</button>
                                     </div>
-                                    <input type="password" name="password" id="password" value=<%= user.getPassword() %> class="form-control" disabled>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light">Update</button>
-                                    </div>
+                                    <input type="password" name="password" id="password" class="form-control" disabled>
                                 </div>
                             </div>
-                        </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-outline-light">Save changes</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="col text-light">
+            </div>
+            <div class="col text-light">
                     <c:if test="${not empty sessionScope.user.postedJobs}"> 
                         <c:forEach var="jobs" items="${sessionScope.user.getPostedJobs}">
                             <table class="table text-light">
@@ -126,7 +115,7 @@
                         </c:forEach>
                     </c:if>
                     
-                </div>
+            </div>
         </div>
     </div>
 </body>

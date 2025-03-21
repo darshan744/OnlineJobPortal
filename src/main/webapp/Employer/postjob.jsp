@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JobPostings</title>
 </head>
 <%@ page import="com.onlinejob.Entities.Employer"%>
 <body class="bg-dark">
@@ -72,7 +72,9 @@
 <% Employer emp = (Employer) session.getAttribute("user"); 
 if (emp.getCompanyName() == null){ %>
     <script src="text/javascript">alert("Please specify companyName")</script>
-<%} 
+<% 
     response.sendRedirect("employer-dashboard.jsp");
+} 
 %>
+<script src="../JavaScriptResources/toastMessage.js"></script>
 </html>

@@ -11,7 +11,6 @@ import org.hibernate.service.ServiceRegistry;
 import com.onlinejob.Entities.Employer;
 import com.onlinejob.Entities.JobDetails;
 import com.onlinejob.Entities.JobSeeker;
-import com.onlinejob.Entities.Skill;
 import com.onlinejob.Entities.SuperAdmin;
 import com.onlinejob.Entities.User;
 
@@ -48,7 +47,6 @@ public class HibernateUtil {
         con.addAnnotatedClass(JobSeeker.class);
         con.addAnnotatedClass(SuperAdmin.class);
         con.addAnnotatedClass(JobDetails.class);
-        con.addAnnotatedClass(Skill.class);
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                                     .applySettings(con.getProperties()).build();
 

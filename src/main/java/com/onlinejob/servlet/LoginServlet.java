@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                     res.sendRedirect("JobSeekers/Home.jsp");
                 }
                 else if(user.getRole() == Role.EMPLOYER) {
-                    res.sendRedirect("Employer/Home.jsp");
+                    res.sendRedirect("Employer/Home");
                 }
                 else if(user.getRole() == Role.SUPERADMIN) {
                     res.sendRedirect("SuperAdmin/Home.jsp");

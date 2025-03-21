@@ -1,8 +1,7 @@
 package com.onlinejob.Entities;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,47 +10,49 @@ import com.onlinejob.Entities.Enums.JobType;
 
 @Entity
 public class JobDetails {
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+    //compnayName
     @Column(nullable =  false)
     private String companyName;
 
-    
+    //jobrole
     @Column(nullable =  false)
     private String jobRole;
-
+    //jobDescription
     @Column(nullable =  false , columnDefinition = "TEXT")
     private String jobDescription;
-
+    //salary
     @Column(nullable =  false)
     private long salary;
-
-    @ManyToMany()
-    @JoinTable(
-            name = "job_skills",
-            joinColumns = @JoinColumn(name = "job_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id")
-    )
-    private Set<Skill> skills = new HashSet<>();
-
+    //appliedSeekers
     @ManyToMany(mappedBy = "appliedJobs")
     private List<JobSeeker> appliedSeekers;
-
+    //employer
     @ManyToOne
     @JoinColumn(name = "employer_id")
     private Employer employer;
-
+    //lastdate
     @Column(nullable = false)
     private LocalDate lastDateToApply;
-
+    //postedDate
     private LocalDate postedDate = LocalDate.now();
-    
+    //jobType
     @Enumerated(EnumType.STRING)
     private JobType jobType;    
-    
+    //location
     private String location;
-
+    //skills req
+    @ElementCollection
+    private List<String> skills = new ArrayList<>();
+    
+    /**
+     * 
+     * GETTERS AND SETTERS
+     *      
+     * */
     public LocalDate getPostedDate() {
         return postedDate;
     }
@@ -91,15 +92,7 @@ public class JobDetails {
     public void setId(long id) {
         this.id = id;
     }
-
-    public Set<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Set<Skill> skills) {
-        this.skills = skills;
-    }
-
+  
     public List<JobSeeker> getAppliedSeekers() {
         return appliedSeekers;
     }
@@ -137,5 +130,13 @@ public class JobDetails {
     }
     public void setLastDateToApply(LocalDate lastDateToApply) {
         this.lastDateToApply = lastDateToApply;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }
