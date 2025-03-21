@@ -2,6 +2,13 @@ package com.onlinejob.servlet;
 
 import java.io.IOException;
 
+import com.onlinejob.Entities.Skill;
+
+import com.onlinejob.Entities.Employer;
+import com.onlinejob.Entities.JobDetails;
+import com.onlinejob.Entities.User;
+import com.onlinejob.Entities.Enums.JobType;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,8 +28,18 @@ public class postJob extends HttpServlet{
         String[] skills = skillString.split(",");
         String jobType = req.getParameter("jobType");
         String location = req.getParameter("location");
-
-        
-
+        Employer user = (Employer) req.getAttribute("user");
+        JobDetails jobDetails = new JobDetails();
+        jobDetails.setCompanyName(user.getCompanyName());
+        jobDetails.setJobRole(jobRole);
+        jobDetails.setJobDescription(jobDescription);
+        jobDetails.setSalary(Long.parseLong(salary));
+        jobDetails.setJobType(jobType == "FULL_TIME" ? JobType.FULL_TIME : jobType == "PART_TIME" ? JobType.PART_TIME : JobType.INTERNSHIP );
+        jobDetails.setLocation(location);
+        for(String skill : skills) {
+            Skill skillObj = new Skill(); 
+            skillObj.setSkillName(skill);
+            jobDetails.getSkills().add(skillObj)
+        }
     }
 }

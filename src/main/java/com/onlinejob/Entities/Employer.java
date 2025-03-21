@@ -27,4 +27,11 @@ public class Employer extends User {
     public void setPostedJobs(Set<JobDetails> postedJobs) {
         this.postedJobs = postedJobs;
     }
+
+    @Override
+    public String toString() {
+        return "Employer [companyName=" + companyName + ", postedJobs=" + postedJobs + "]";
+    }
+
+
 }

@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<%@ page import="com.onlinejob.Entities.Employer"%>
 <body class="bg-dark">
     <jsp:include page="employernavbar.jsp"></jsp:include>
+    
     <div class="container d-flex justify-content-center mt-5">
         <form class="p-3 rounded-2 text-light w-50" action="jobposting" method="post" onsubmit="return validateForm()">
             <div class="form-group">
@@ -67,4 +68,11 @@
     crossorigin="anonymous"></script>
 <script src="../JavaScriptResources/addSkills.js"></script>
 <script src="../JavaScriptResources/jobFormValidtion.js"></script>
+
+<% Employer emp = (Employer) session.getAttribute("user"); 
+if (emp.getCompanyName() == null){ %>
+    <script src="text/javascript">alert("Please specify companyName")</script>
+<%} 
+    response.sendRedirect("employer-dashboard.jsp");
+%>
 </html>
