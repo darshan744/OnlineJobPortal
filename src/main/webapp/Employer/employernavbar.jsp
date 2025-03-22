@@ -15,7 +15,7 @@
         <div class="navbar-brand ms-2">
             Online Job Portal
         </div>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav w-100">
             <li class="nav-item">
                 <a href="Home" class="nav-link">Home</a>
             </li>
@@ -26,6 +26,9 @@
                 <a href="EmployerDashboard" class="nav-link">Dashboard</a>
             </li>
         </ul>
+        <form class="align-self-end me-4" action="<%= request.getContextPath() %>/logout" method="get">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
     </nav>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

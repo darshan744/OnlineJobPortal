@@ -1,4 +1,4 @@
-package com.onlinejob.servlet;
+package com.onlinejob.servlet.EmployerServlets;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/Employer/jobposting")
-public class postJob extends HttpServlet{
+public class EmployerPostJob extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

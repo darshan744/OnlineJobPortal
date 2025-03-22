@@ -14,7 +14,7 @@
 <body class="bg-dark">
     <jsp:include page="employernavbar.jsp"></jsp:include>
     <div class="container">
-        <% Employer user=(Employer) request.getAttribute("employer"); %>
+        <% Employer user=(Employer) session.getAttribute("user"); %>
         <div class="row">
             <div class="col text-light">
                     <div class="d-flex flex-column card align-items-center bg-dark p-3 shadow-lg">
@@ -74,7 +74,7 @@
                                         <div class="input-group-prepend">
                                             <button class="btn btn-light" type="button" onclick="openEditOption('phonenumber')">Edit</button>
                                         </div>
-                                        <input type="text" name="phonenumber" id="phonenumber" class="form-control" disabled>
+                                        <input type="text" name="phonenumber" value="<%=user.getPhoneNumber()%>" id="phonenumber" class="form-control" disabled>
                                        
                                     </div>
                                 </div>

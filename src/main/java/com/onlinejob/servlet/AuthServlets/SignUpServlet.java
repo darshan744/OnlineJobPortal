@@ -1,4 +1,4 @@
-package com.onlinejob.servlet;
+package com.onlinejob.servlet.AuthServlets;
 
 import java.io.IOException;
 

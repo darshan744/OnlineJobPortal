@@ -1,4 +1,4 @@
-package com.onlinejob.servlet;
+package com.onlinejob.servlet.AuthServlets;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

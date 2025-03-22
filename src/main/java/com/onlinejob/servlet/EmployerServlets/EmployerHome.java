@@ -1,4 +1,4 @@
-package com.onlinejob.servlet;
+package com.onlinejob.servlet.EmployerServlets;
 
 import java.io.IOException;
 import java.util.List;

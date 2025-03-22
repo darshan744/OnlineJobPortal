@@ -1,7 +1,7 @@
 <html>
     <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    rel="stylesheet" >
+      <%@ page import="java.util.List , com.onlinejob.Entities.JobDetails , com.onlinejob.services.JobDetailsDAO" %>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -10,34 +10,41 @@
     />
     </head>
     <title>Jobs</title>
-    <body>
-        <jsp:include page="navbar.jsp"></jsp:include>
-        <div class="container mt-3">
-          <div class="card" style="width: 400px">
-            <div class="card-header d-flex justify-content-between">
-              <div>
-                Zoho
-              </div>
-              <div>
-                <div>
-                  <i class="fa-solid fa-location-dot" style="color: #000000;"></i>
-                  Hyderabad
-                </div>
-              </div>
+    <body class="bg-dark">
+      <jsp:include page="navbar.jsp"></jsp:include>
+      <div class="container mt-3 gap-4 d-flex">
+          <% 
+            JobDetailsDAO jobDao = JobDetailsDAO.getJobDetailsDAO();
+            List<JobDetails> jobDetails = jobDao.getJobDetails();
+            for(JobDetails jobs : jobDetails){  
+          %>
+          <div class="card bg-dark text-light border-light shadow-lg" style="width: 500px;">
+            <div class="card-header border-light d-flex justify-content-between">
+                <h6><%= jobs.getCompanyName() %></h6>
+                <h6><i class="bi bi-geo-alt-fill"></i>
+                <%= jobs.getLocation() %>
+                </h6>
             </div>
             <div class="card-body">
-              <div>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid at distinctio esse tempore optio eius quae omnis laudantium accusamus fugit!
-              </div>
+                <h4>Skills Required : </h4>
+                <ul> 
+                    <% for(String skill :  jobs.getSkills()) { %>
+                    <li>
+                        <%= skill %>
+                    </li>
+                    <% } %>
+                </ul>
             </div>
-            <div class="card-footer d-flex justify-content-between">
-              <div>
-                <i class="fa fa-inr"></i>
-                100000000
-              </div>
-              <button class="btn btn-sm btn-outline-primary">Apply Now</button>
+            <div class="card-footer d-flex justify-content-between align-items-center border-light">
+                <h6 class="d-flex justify-content-center align-items-center gap-1"> 
+                  <i class="bi bi-currency-rupee"></i>
+                    <%= jobs.getSalary() %>    
+                </h6>
+                <a href="JobInfo?jobId=<%=jobs.getId()%>" class="btn btn-outline-info">
+                    Open</a>
             </div>
-          </div>
+        </div>
+        <% } %>
         </div>
     </body>
     <script
