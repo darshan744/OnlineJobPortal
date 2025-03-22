@@ -18,14 +18,14 @@
         <div class="row">
             <h3 class="col-12">Your Postings</h3>
         </div>
-        <div class="row">
-            <% 
+        <div class="row gap-4">
+            <%
                 List<JobDetails> jobDetails = (List<JobDetails>) session.getAttribute("jobs");
                 for(JobDetails jobs : jobDetails) {
             %>
             <div class="card bg-dark text-light border-light shadow-lg" style="width: 500px;">
                 <div class="card-header border-light">
-                    <%= jobs.getJobRole() %>
+                    <h6><%= jobs.getJobRole() %></h6>
                 </div>
                 <div class="card-body">
                     <p>Skills Required : </p>
@@ -42,7 +42,8 @@
                         <i class="bi bi-geo-alt-fill"></i>
                         <%= jobs.getLocation() %>    
                     </h6>
-                    <button class="btn btn-outline-info">Open</button>
+                    <a href="JobInfo?jobId=<%=jobs.getId()%>" class="btn btn-outline-info">
+                        Open</a>
                 </div>
             </div>
             <% 

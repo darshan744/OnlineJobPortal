@@ -20,10 +20,16 @@ public class JobDetails {
 
     @Override
     public String toString() {
-        return "JobDetails [id=" + id + ", companyName=" + companyName + ", jobRole=" + jobRole + ", jobDescription="
-                + jobDescription + ", salary=" + salary + ", appliedSeekers=" + appliedSeekers + ", employer="
-                + employer + ", lastDateToApply=" + lastDateToApply + ", postedDate=" + postedDate + ", jobType="
-                + jobType + ", location=" + location + ", skills=" + skills + "]";
+        return "JobDetails [id="+ id +
+                ", companyName=" + companyName + 
+                ", jobRole=" + jobRole +
+                ", jobDescription=" + jobDescription +
+                ", salary=" + salary +
+                ", appliedSeekers=" + appliedSeekers +
+                ", lastDateToApply=" + lastDateToApply +
+                ", postedDate=" + postedDate + ", jobType="+ jobType + 
+                ", location=" + location + ", skills=" + skills +
+            "]";
     }
 
     //jobrole
@@ -55,7 +61,6 @@ public class JobDetails {
     //skills req
     @ElementCollection
     private List<String> skills = new ArrayList<>();
-    
     /**
      * 
      * GETTERS AND SETTERS

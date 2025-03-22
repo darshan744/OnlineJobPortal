@@ -25,16 +25,13 @@
       color:white;
             font-weight: bold;
     }
-    .card{
-      border-radius: 9px;
-      box-shadow: 8px 8px 18px rgb(52, 51, 51);
-    }
+    
   </style>
 
   <body class="d-flex flex-column justify-content-center align-items-center"
       style="height: 100vh" style="height: 100%">
     <div
-      class="card p-3"
+      class="card p-3 shadow-lg"
     >
       <ul style="border: none;" class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">

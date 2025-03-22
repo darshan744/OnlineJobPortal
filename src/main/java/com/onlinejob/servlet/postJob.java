@@ -37,7 +37,7 @@ public class postJob extends HttpServlet{
         jobDetails.setJobDescription(jobDescription);
         jobDetails.setSalary(Long.parseLong(salary));
         //job type
-        jobDetails.setJobType(jobType == "FULL_TIME" ? JobType.FULL_TIME : jobType == "PART_TIME" ? JobType.PART_TIME : JobType.INTERNSHIP );
+        jobDetails.setJobType(jobType.equals("FULL_TIME") ? JobType.FULL_TIME : jobType.equals("PART_TIME") ? JobType.PART_TIME : JobType.INTERNSHIP );
         jobDetails.setLocation(location);
         
         List<String> skillList = Arrays.asList(skills);
@@ -48,6 +48,7 @@ public class postJob extends HttpServlet{
         HttpSession session = req.getSession();
         Employer emp = (Employer) session.getAttribute("user");
         jobDetails.setCompanyName(emp.getCompanyName());
+        jobDetails.setEmployer(emp);
         JobDetailsDAO jobDetailsDAO = JobDetailsDAO.getJobDetailsDAO();
         try {
             jobDetailsDAO.putJobDetails(jobDetails);

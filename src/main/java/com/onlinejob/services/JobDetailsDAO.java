@@ -32,9 +32,7 @@ public class JobDetailsDAO {
             if(tx != null) {
                 tx.rollback();
             }
-            System.out.println("--------------------------------------------------");
-            System.err.println(e.getLocalizedMessage());
-            System.out.println("--------------------------------------------------");
+            System.out.println(e.getMessage());
         }
 
     }
@@ -43,5 +41,14 @@ public class JobDetailsDAO {
         Query<JobDetails> query = session.createQuery("from JobDetails" , JobDetails.class);
         List<JobDetails> list = query.list();
         return list;
+    }
+
+    public JobDetails getJobWithId(long id){ 
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query<JobDetails> query = session.createQuery(" from JobDetails where id = :id " , JobDetails.class);
+        query.setParameter("id", id);
+        JobDetails jobDetails = query.uniqueResult();
+        System.out.println(jobDetails);
+        return jobDetails;
     }
 }

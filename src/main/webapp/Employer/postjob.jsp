@@ -14,7 +14,7 @@
     <jsp:include page="employernavbar.jsp"></jsp:include>
     
     <div class="container d-flex justify-content-center mt-5">
-        <form class="p-3 rounded-2 text-light w-50" action="jobposting" method="post" onsubmit="return validateForm()">
+        <form class="p-3 rounded-2 text-light w-50 shadow-lg" action="jobposting" method="post" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="jobRole" class="form-label">JobName</label>
                 <input type="text" name="jobRole" required id="jobRole" placeholder="Job Name" class="form-control">
