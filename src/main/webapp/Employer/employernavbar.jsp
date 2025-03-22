@@ -23,7 +23,7 @@
                 <a href="postjob.jsp" class="nav-link">Post Job</a>
             </li>
             <li class="nav-item">
-                <a href="employer-dashboard.jsp" class="nav-link">Dashboard</a>
+                <a href="EmployerDashboard" class="nav-link">Dashboard</a>
             </li>
         </ul>
     </nav>

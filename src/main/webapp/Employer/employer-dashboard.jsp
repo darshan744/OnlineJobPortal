@@ -8,13 +8,13 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Profile</title>
 </head>
 
 <body class="bg-dark">
     <jsp:include page="employernavbar.jsp"></jsp:include>
     <div class="container">
-        <% Employer user=(Employer) session.getAttribute("user"); %>
+        <% Employer user=(Employer) request.getAttribute("employer"); %>
         <div class="row">
             <div class="col text-light">
                     <div class="d-flex flex-column card align-items-center bg-dark p-3 shadow-lg">
@@ -94,34 +94,7 @@
                         </form>
                     </div>
             </div>
-            <div class="col text-light shadow-lg">
-                    <c:if test="${not empty sessionScope.user.postedJobs}"> 
-                        <c:forEach var="jobs" items="${sessionScope.user.getPostedJobs}">
-                            <table class="table text-light">
-                                <thead>
-                                    <tr>
-                                        <th>JobRole</th>
-                                        <th>Last Date to Apply</th>
-                                        <th>URL to JobDetails</th>
-                                    </tr>
-                                </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                ${jobs.getJobRole}
-                                            </td>
-                                            <td>
-                                                ${jobs.lastDateToApply}
-                                            </td>
-                                            <td>
-                                                <a href="job.jsp">JobDetails</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                            </table>
-                        </c:forEach>
-                    </c:if>
-            </div>
+           
         </div>
     </div>
 </body>
