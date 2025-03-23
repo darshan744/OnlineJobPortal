@@ -1,6 +1,6 @@
 <html>
     <head>
-      <%@ page import="java.util.List , com.onlinejob.Entities.JobDetails , com.onlinejob.services.JobDetailsDAO" %>
+      <%@ page import="java.util.List ,java.time.LocalDate , com.onlinejob.Entities.JobDetails , com.onlinejob.services.JobDetailsDAO" %>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -17,6 +17,7 @@
             JobDetailsDAO jobDao = JobDetailsDAO.getJobDetailsDAO();
             List<JobDetails> jobDetails = jobDao.getJobDetails();
             for(JobDetails jobs : jobDetails){  
+              if(jobs.getLastDateToApply().isAfter(LocalDate.now())){
           %>
           <div class="card bg-dark text-light border-light shadow-lg" style="width: 500px;">
             <div class="card-header border-light d-flex justify-content-between">
@@ -44,7 +45,8 @@
                     Open</a>
             </div>
         </div>
-        <% } %>
+        <% }  
+      }%>
         </div>
     </body>
     <script

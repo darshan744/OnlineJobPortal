@@ -62,6 +62,13 @@
             </div>
         </form>
     </div>
+    <div id="toast-container" class="position-fixed top-0 end-0 p-3">
+        <div id="toast" class="toast align-items-center bottom-0" role="alert">
+          <div class="d-flex">
+              <div class="toast-body" id="toast-body"></div>
+              <button class="btn-close m-auto" data-bs-dismiss="toast"></button>
+          </div>
+      </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -76,5 +83,4 @@ if (emp.getCompanyName() == null){ %>
     response.sendRedirect("employer-dashboard.jsp");
 } 
 %>
-<script src="../JavaScriptResources/toastMessage.js"></script>
 </html>

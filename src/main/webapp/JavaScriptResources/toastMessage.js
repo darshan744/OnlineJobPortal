@@ -1,6 +1,7 @@
 function showToast(message , type){
     let toast = document.getElementById("toast");
    let toastBody = document.getElementById("toast-body");
+   console.log('show toast called')
    toast.classList.add(`text-bg-${type}`)
    toastBody.innerText = message;
     const toastComponenty = new bootstrap.Toast(toast);

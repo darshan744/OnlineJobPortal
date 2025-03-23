@@ -10,7 +10,7 @@
     <a href="#" class="navbar-brand ms-3">Online Job Portal</a>
     <ul class="navbar-nav w-100">
       <li class="nav-item"><a href="Home.jsp" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="job-seeker-dashboard.jsp" class="nav-link">Profile</a></li>
+      <li class="nav-item"><a href="Profile" class="nav-link">Profile</a></li>
     </ul>
     <form class="align-self-end me-4" action="<%= request.getContextPath() %>/logout" method="get">
       <button type="submit" class="btn btn-danger">Logout</button>

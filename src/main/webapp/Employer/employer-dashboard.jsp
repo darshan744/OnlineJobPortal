@@ -94,7 +94,13 @@
                         </form>
                     </div>
             </div>
-           
+            <div id="toast-container" class="position-fixed top-0 end-0 p-3">
+                <div id="toast" class="toast align-items-center bottom-0" role="alert">
+                  <div class="d-flex">
+                      <div class="toast-body" id="toast-body"></div>
+                      <button class="btn-close m-auto" data-bs-dismiss="toast"></button>
+                  </div>
+              </div>
         </div>
     </div>
 </body>
